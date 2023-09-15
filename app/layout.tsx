@@ -1,8 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Poppins({
+  weight: ["200", "400", "600", "900"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Github repository",
@@ -16,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-br">
+      <body className={font.className}>{children}</body>
     </html>
   );
 }

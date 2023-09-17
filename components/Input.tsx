@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, ReactElement, forwardRef } from "react";
+import React, { InputHTMLAttributes, forwardRef, useId } from "react";
 import { IconType } from "react-icons";
 
 type InputType = InputHTMLAttributes<HTMLInputElement> & {
@@ -8,13 +8,12 @@ type InputType = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 const Input = forwardRef<HTMLInputElement, InputType>(
-  (
-    { name, label, type = "text", placeholder, textError, Icon, ...props },
-    ref
-  ) => {
+  ({ label, type = "text", placeholder, textError, Icon, ...props }, ref) => {
+    let id = useId();
+
     return (
       <div className="items-start flex flex-col ">
-        <label htmlFor={name} className="text-sm text-[#999999]">
+        <label htmlFor={id} className="text-sm text-[#999999]">
           {label} :
         </label>
         <div className="border-transparent border-2 border-b-zinc-300 flex gap-3 items-center justify-center w-full focus-within:border-[#000842] transition-all">
@@ -23,8 +22,7 @@ const Input = forwardRef<HTMLInputElement, InputType>(
             ref={ref}
             type={type}
             {...props}
-            name={name}
-            id={name}
+            id={id}
             placeholder={placeholder}
             className="flex-1 placeholder:text-base placeholder:text-[#000842] p-1 focus:outline-none"
           />

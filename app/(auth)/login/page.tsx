@@ -37,7 +37,7 @@ const LoginPage = () => {
         <div className="flex items-start justify-center flex-col h-full gap-8">
           <h2 className="text-3xl font-semibold">Entrar</h2>
           <p>
-            Se você não tem uma conta registrada Você pode{" "}
+            Se você não tem uma conta cadastrada, você pode{" "}
             <Link href="/register" className="font-bold text-[#0C21C1]">
               Registrar-se aqui!
             </Link>
